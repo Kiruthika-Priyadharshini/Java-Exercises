@@ -1,4 +1,4 @@
-package com.exercises.OOPS_Exercises_set2;
+package OOPS_Exercises_set2;
 
 //RGBColor class representing a color using Red Green Blue (RGB) model.
 public class RGBColor {
