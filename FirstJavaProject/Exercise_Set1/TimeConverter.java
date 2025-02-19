@@ -1,4 +1,4 @@
-package com.exercises;
+package Exercise_Set1;
 
 public class TimeConverter {
 	public static int convertHoursToMinutes(int hours) {

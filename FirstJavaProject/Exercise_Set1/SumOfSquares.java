@@ -1,4 +1,4 @@
-package com.exercises;
+package Exercise_Set1;
 
 public class SumOfSquares {
 	public long calculateSumOfSquares(int n) {

@@ -1,4 +1,4 @@
-package com.exercises.OOPS_Exercises_set2;
+package OOPS_Exercises_set2;
 
 //Defining a Point class to represent a point in 2-dimensional space
 public class Point {
