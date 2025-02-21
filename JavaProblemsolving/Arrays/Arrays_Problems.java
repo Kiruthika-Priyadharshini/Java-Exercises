@@ -1,5 +1,7 @@
 package JavaProblemsolving.Arrays;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Arrays_Problems {
     static void ArrayDeclaration(){
@@ -98,9 +100,153 @@ public class Arrays_Problems {
         }
         System.out.println("Sorted array:");
         for (int num : arr) {
-            System.out.print(num + " ");
+            System.out.println(num + " ");
         }
     }
+
+    static int searchArray(int [] arr, int num){
+        // int[] arr={2,3,3,4,1};
+        // int num =4;
+        for (int i=0;i<=arr.length;i++){
+            if (arr[i]==num){
+                return i;
+            }
+        }
+                return 0;
+    }
+
+
+    static void dynammicArray(){
+        Scanner sc = new Scanner(System.in);
+        System.err.println("Enter total number of elements");
+        int n=sc.nextInt();
+
+        int[] arr= new int[n];
+        System.out.println("Enter" + n + "elements");
+
+        for(int i=0;i<n;i++){
+            arr[i]= sc.nextInt();
+
+        }
+        System.out.println("Array Created"+ Arrays.toString(arr));
+        
+    }
+
+    static void frequencyCount(){
+        int[] arr = {10, 20, 10, 30, 20, 40, 10};
+        for (int i=0;i<arr.length;i++){
+            int count=1;
+            if (arr[i]==-1){
+                continue;
+            }
+            for (int j=i+1;j<arr.length;j++){
+                if (arr[i]==arr[j]){
+                    count++;
+                    arr[j]=-1;
+                }
+            }
+            System.out.println(arr[i]+ "-"+ count);
+        }
+
+    }
+
+    static void rotateArray() {
+        int[] arr = {10, 20, 10, 30, 20, 40, 10};
+        int num=2;
+
+        for (int i = 0; i < num; i++) {
+            int temp = arr[arr.length - 1];
+            for (int j = arr.length - 1; j > 0; j--) {
+                arr[j] = arr[j - 1]; 
+            }
+            arr[0] = temp; 
+        }
+
+        System.out.print("Rotated array: ");
+        for (int n : arr) {
+            System.out.println(n + " ");
+        }
+    }
+    static int[] mergeArrays(int[] arr1, int[] arr2) {
+        int[] merged = new int[arr1.length + arr2.length];
+        int index = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            merged[index] = arr1[i];
+            index++; 
+        }
+        for (int i = 0; i < arr2.length; i++) {
+            merged[index] = arr2[i];
+            index++; 
+        }
+        return merged;
+    }
+    
+    static void findDuplicates(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println("The duplicate is "+ arr[i]);
+                }
+            }
+        }
+    }
+
+    static ArrayList<Integer> arrayToList(int[] arr) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int num : arr) {
+            list.add(num);   
+        }
+        return list;
+    }
+
+    static int[] listToArray(ArrayList<Integer> list) {
+        int[] arr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+        return arr;
+    }
+
+    static void findSubarraySum(int[] arr, int target) {
+
+        for (int i = 0; i < arr.length; i++) {
+            int sum = 0;
+
+            for (int j = i; j < arr.length; j++) {
+                sum += arr[j];
+                if (sum == target) {
+                    System.out.println("Subarray: ");
+                    for (int k = i; k <= j; k++) {
+                        System.out.print(arr[k] + " ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    } 
+    static void transposeMatrix(int[][] matrix) {
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int[][] transpose = new int[col][row];
+
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                transpose[j][i] =matrix[i][j];
+            }    
+        }
+        for(int i=0;i<col;i++){
+            for(int j=0;j<row;j++){
+                System.out.print(transpose[i][j]+" ");
+            }
+            System.out.println();
+        }
+        
+        }
+
+    
+    
+    
+
 
 
     public static void main(String[] args) {
@@ -118,6 +264,24 @@ public class Arrays_Problems {
         int[] arr = {56, 25, 11, 42, 7};
         bubbleSort(arr);
         
+        int[] arr2={2,3,3,4,1};
+        System.out.println("Searching an element in an array"+ searchArray(arr2,4));
+
+        dynammicArray();
+        frequencyCount();
+
+        rotateArray();
+
+        System.out.println(Arrays.toString(mergeArrays(arr1, arr2)));
+        findDuplicates(arr2);
+        
+        System.out.println((arrayToList(arr)));
+
+        findSubarraySum(new int[]{1, 2, 3, 4, 5}, 7);
+
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        transposeMatrix(matrix);
+
 
     }
 
