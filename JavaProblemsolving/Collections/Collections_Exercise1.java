@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class Collections {
+public class Collections_Exercise1 {
     // 1. Add an dynamic elements into a array list using for loop multiplication of
     // 5
     public void array_dynamicelements() {
@@ -60,7 +60,7 @@ public class Collections {
     }
 
     public static void main(String[] args) {
-        Collections col = new Collections();
+        Collections_Exercise1 col = new Collections_Exercise1();
         col.array_dynamicelements();
         col.addelement(3, 100);
         col.removeElement(2, 40);
