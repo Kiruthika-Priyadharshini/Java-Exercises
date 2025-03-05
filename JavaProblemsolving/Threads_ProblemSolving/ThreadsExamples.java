@@ -15,15 +15,34 @@ public class ThreadsExamples implements Runnable {
     }
 
     public static void threadJoin() {
-        Thread t1 = new Thread(() -> System.out.println("Thread 1 running"));
-        Thread t2 = new Thread(() -> System.out.println("Thread 2 running"));
+        Thread t1 = new Thread(() -> {
+            System.out.println("Thread 1 Started");
+            try {
+                Thread.sleep(200);
+                System.out.println("Thread 1 Completed");
+            } catch (InterruptedException e) {
 
-        t1.start();
-        t2.start();
+                e.printStackTrace();
+            }
 
+        });
+        Thread t2 = new Thread(() -> {
+            System.out.println("Thread 2 Started");
+            try {
+                Thread.sleep(2000);
+                System.out.println("Thread 2 Completed");
+            } catch (InterruptedException e) {
+
+                e.printStackTrace();
+            }
+
+        });
         try {
+            t1.start();
             t1.join();
+            t2.start();
             t2.join();
+
         } catch (InterruptedException e) {
             System.out.println("Thread interrupted.");
         }
@@ -38,6 +57,13 @@ class ThreadsExamplesMain {
         ThreadsExamples example1 = new ThreadsExamples();
         Thread t = new Thread(example1);
         t.start();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+        }
+        example1.threadJoin();
 
     }
 }

@@ -25,6 +25,7 @@ class Synchronization_Example {
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
+
                 }
 
                 synchronized (lock1) {
