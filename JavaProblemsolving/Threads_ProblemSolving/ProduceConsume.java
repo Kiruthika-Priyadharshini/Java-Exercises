@@ -25,6 +25,7 @@ class SharedBuffer {
 }
 
 public class ProduceConsume {
+    public static void main(String[] args) {
         SharedBuffer buffer = new SharedBuffer();
 
         Thread producer = new Thread(() -> {
